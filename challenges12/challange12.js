@@ -1,12 +1,13 @@
 const readline = require('readline')
 const fs = require('fs')
+let data = fs.readFileSync('./data.json', 'utf8')
+let words = JSON.parse(data);
+let hasil = 0;
+let answer = 1;
 //console.log(words);
 if (process.argv[2]) {
 
-  let data = fs.readFileSync('./data.json', 'utf8')
-  let words = JSON.parse(data);
-  let hasil = 0;
-  let answer = 1;
+
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
