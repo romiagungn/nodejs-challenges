@@ -5,7 +5,7 @@ let data = readData();
 let number = process.argv[3] - 1;
 const write = (data) => fs.writeFileSync('data.json', JSON.stringify(data, null, 3), 'utf8');
 
-const help = console.log(
+const help = () => console.log(
     `>>> JS TODO <<<
 $ node todo.js <command>
 $ node todo.js list
@@ -23,7 +23,7 @@ switch (process.argv[2]) {
         data.push({
             'task': output,
             'complete': false,
-            'tag': [ ]
+            'tag': []
         });
         write(data);
         console.log(`${output} telah ditambahkan`)
@@ -35,18 +35,22 @@ switch (process.argv[2]) {
         break;
     case 'list':
         console.log(`Daftar Pekerjaan`)
-        data.forEach((item, index)=> {
-            console.log(`${index+1}. [${item.tag}] ${item.task} `)
+        data.forEach((item, index) => {
+            console.log(`${index + 1}. [${item.tag}] ${item.task} `)
         })
         break;
-    // case 'help':
-    //     help;  
-    //     write(data);  
-    // break;
     case 'complete':
         data[number].complete = true;
         data[number].tag = 'x';
-    write(data);
+        write(data);
+        break;
+    case 'uncomplete':
+        data[number].complete = false;
+        data[number].tag = ' '
+        write(data);
+        break;
+    default:
+        help();  
     break;
 }
 

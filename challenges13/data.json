@@ -8,5 +8,15 @@
       "task": "saya mau masak",
       "complete": false,
       "tag": []
+   },
+   {
+      "task": "aku pergi saja",
+      "complete": false,
+      "tag": []
+   },
+   {
+      "task": "aku",
+      "complete": false,
+      "tag": []
    }
 ]
