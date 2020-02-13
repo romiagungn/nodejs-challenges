@@ -4,11 +4,10 @@ let data = fs.readFileSync('./data.json', 'utf8')
 let words = JSON.parse(data);
 let hasil = 0;
 let answer = 1;
-//console.log(words);
+
 if (process.argv[2]) {
-
-
-  const rl = readline.createInterface({
+  
+    const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     prompt: 'Tebakan : '
@@ -33,7 +32,7 @@ if (process.argv[2]) {
       hasil++
       console.log(words[hasil].a)
       rl.prompt()
-    } 
+    }
     else {
       console.log(`Anda Kurang Beruntung! anda telah salah ${answer}, silahkan coba lagi`);
       answer++
