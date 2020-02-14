@@ -72,7 +72,11 @@ switch (process.argv[2]) {
     break;
     case 'list:completed':
             if (process.argv[3] = 'desc'){
-                
+                for(let i = data.length -1; i >=0; i--){
+                    if(data[i].complete === true){
+                        console.log(`${i+1}. [${data[i].tag}] ${data[i].task}`)
+                    }
+                }
             } else if (process.argv[3] = 'asc'){
                 
             }
