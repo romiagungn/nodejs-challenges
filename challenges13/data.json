@@ -6,8 +6,8 @@
    },
    {
       "task": "saya mau masak",
-      "complete": false,
-      "tag": []
+      "complete": true,
+      "tag": "x"
    },
    {
       "task": "aku pergi saja",
