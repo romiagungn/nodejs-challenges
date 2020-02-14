@@ -2,21 +2,31 @@
    {
       "task": "saya mau pergi kencan bersamanya ya",
       "complete": true,
-      "tag": "x"
+      "tag": "x",
+      "tags": [
+         "masak",
+         "sayur"
+      ]
    },
    {
       "task": "saya mau masak",
       "complete": true,
-      "tag": "x"
+      "tag": "x",
+      "tags": ""
    },
    {
       "task": "aku pergi saja",
-      "complete": false,
-      "tag": []
+      "complete": true,
+      "tag": "x",
+      "tags": [
+         "masak",
+         "sayur"
+      ]
    },
    {
       "task": "aku",
       "complete": false,
-      "tag": []
+      "tag": [],
+      "tags": ""
    }
 ]

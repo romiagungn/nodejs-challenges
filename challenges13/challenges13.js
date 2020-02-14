@@ -26,7 +26,8 @@ switch (process.argv[2]) {
         data.push({
             'task': output,
             'complete': false,
-            'tag': []
+            'tag': [],
+            'tags' : ''
         });
         write(data);
         console.log(`${output} telah ditambahkan`)
@@ -44,7 +45,7 @@ switch (process.argv[2]) {
         break;
     case 'complete':
         data[number].complete = true;
-        data[number].tag = 'x';
+        data[number ].tag= 'x';
         console.log(`"${data[number].task}" telah selesai`)
         write(data);
         break;
@@ -84,6 +85,12 @@ switch (process.argv[2]) {
                     }
                 }
             }
+    break;
+    case 'tags':
+        newArgv = process.argv.slice(4)      
+        data[number].tags = newArgv 
+        write(data)
+         console.log(`tag '${data[number].tags}' telah ditambahkan ke daftar '${data[number].teks}'`);
     break;
     default:
         help();  
