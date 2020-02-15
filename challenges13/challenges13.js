@@ -27,7 +27,7 @@ switch (process.argv[2]) {
             'task': output,
             'complete': false,
             'tag': [],
-            'tags' : ''
+            'tags': ''
         });
         write(data);
         console.log(`${output} telah ditambahkan`)
@@ -45,55 +45,67 @@ switch (process.argv[2]) {
         break;
     case 'complete':
         data[number].complete = true;
-        data[number ].tag= 'x';
+        data[number].tag = 'x';
         console.log(`"${data[number].task}" telah selesai`)
         write(data);
         break;
     case 'uncomplete':
         data[number].complete = false;
-        data[number].tag = [ ]
+        data[number].tag = []
         console.log(`"${data[number].task}" status selesai di batalkan`)
         write(data);
         break;
     case 'list:outstanding':
         // console.log(process.argv[3])
-            if (process.argv[3] === 'desc'){
-                for (let i = data.length - 1 ; i >= 0; i--){
-                    if(data[i].complete === false){
-                            console.log(`${i+1}. [${data[i].tag}] ${data[i].task}` )
-                    }
-                }
-            } else if (process.argv[3] === 'asc'){
-                for(let j = 0; j < data.length; j++ ){
-                    if(data[j].complete === false){
-                        console.log(`${j+1}. [${data[j].tag}] ${data[j].task}`)
-                    }
+        if (process.argv[3] === 'desc') {
+            for (let i = data.length - 1; i >= 0; i--) {
+                if (data[i].complete === false) {
+                    console.log(`${i + 1}. [${data[i].tag}] ${data[i].task}`)
                 }
             }
-    break;
+        } else if (process.argv[3] === 'asc') {
+            for (let j = 0; j < data.length; j++) {
+                if (data[j].complete === false) {
+                    console.log(`${j + 1}. [${data[j].tag}] ${data[j].task}`)
+                }
+            }
+        }
+        break;
     case 'list:completed':
-            if (process.argv[3] === 'desc'){
-                for(let i = data.length -1; i >=0; i--){
-                    if(data[i].complete === true){
-                        console.log(`${i+1}. [${data[i].tag}] ${data[i].task}`)
-                    }
-                }
-            } else if (process.argv[3] === 'asc'){
-                for (let j = 0; j < data.length; j++){
-                    if(data[j].complete === true){
-                        console.log(`${j+1}. [${data[j].tag}] ${data[j].task}`)
-                    }
+        if (process.argv[3] === 'desc') {
+            for (let i = data.length - 1; i >= 0; i--) {
+                if (data[i].complete === true) {
+                    console.log(`${i + 1}. [${data[i].tag}] ${data[i].task}`)
                 }
             }
-    break;
+        } else if (process.argv[3] === 'asc') {
+            for (let j = 0; j < data.length; j++) {
+                if (data[j].complete === true) {
+                    console.log(`${j + 1}. [${data[j].tag}] ${data[j].task}`)
+                }
+            }
+        }
+        break;
     case 'tags':
-        newArgv = process.argv.slice(4)      
-        data[number].tags = newArgv 
+        newArgv = process.argv.slice(4)
+        data[number].tags = newArgv
         write(data)
-         console.log(`tag '${data[number].tags}' telah ditambahkan ke daftar '${data[number].teks}'`);
-    break;
+        console.log(`tag '${data[number].tags}' telah ditambahkan ke daftar '${data[number].task}'`);
+        break;
+    case `filter:${data[i].tags[j]}`:
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < 2; j++) {
+                if (process.argv[3] === data[i].tags[j]) {
+                    console.log(`${i + 1}. ${data[i].task}`)
+                    //    console.log(i)
+                    //    console.log(j)
+                    write(data)
+                }
+            }
+        }
+        break;
     default:
-        help();  
-    break;
+        help();
+        break;
 }
 
