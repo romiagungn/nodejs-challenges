@@ -92,14 +92,14 @@ switch (process.argv[2]) {
         write(data)
         console.log(`tag '${data[number].tags}' telah ditambahkan ke daftar '${data[number].task}'`);
         break;
-    case `filter:${data[i].tags[j]}`:
+    case 'filter:':
         for (let i = 0; i < data.length; i++) {
             for (let j = 0; j < 2; j++) {
                 if (process.argv[3] === data[i].tags[j]) {
                     console.log(`${i + 1}. ${data[i].task}`)
                     //    console.log(i)
                     //    console.log(j)
-                    write(data)
+                    // write(data)
                 }
             }
         }
